@@ -7,9 +7,10 @@ import CadastroControleFinaceiro from '../pages/CadatroControleFinandeiro';
 export default function Routes() {
   return (
     <Switch>
-    <Route path="/" exact component={ControleFinaceiro} />
     <Route path="/cadastro/:period/:id" component={CadastroControleFinaceiro} />
     <Route path="/cadastro/:period/" component={CadastroControleFinaceiro} />
+    <Route path="/:period" component={ControleFinaceiro} />
+    <Route path="/" component={ControleFinaceiro} />
   </Switch>
   )
 }

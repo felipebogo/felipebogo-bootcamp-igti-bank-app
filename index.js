@@ -19,7 +19,7 @@ app.use(express.json());
  * Vinculando o React ao app
  */
 console.log(path.join(__dirname, 'client/build'));
- app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 /**
  * Rota raiz

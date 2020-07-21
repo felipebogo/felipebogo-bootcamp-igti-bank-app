@@ -59,9 +59,9 @@ export default function CadastroControleFinanceiro(props) {
 
   const handleCancelar = useCallback(
     () => {
-      history.push('/');
+      history.push('/' +  moment(date).format('YYYY-MM'));
     },
-    [history],
+    [history , date],
   );
 
   const getTransaction = useCallback(
@@ -128,12 +128,12 @@ export default function CadastroControleFinanceiro(props) {
         } else {
           await api.put('/api/transaction/', newTransaction);
         }
-        history.push('/');
+        history.push('/' +  moment(date).format('YYYY-MM'));
       } catch (error) {
         setIsSaving(false);
       }
     },
-    [getTransaction, validateFields, id, history],
+    [getTransaction, validateFields, id, history, date],
   );
 
   const handleTypeChange = (type) => {

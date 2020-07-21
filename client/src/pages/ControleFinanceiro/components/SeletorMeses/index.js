@@ -3,16 +3,18 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { Container } from './styles';
 import moment from 'moment';
 
-export default function SeletorMeses({ onAnteriorClick, onProximoClick, onChangeSelect }) {
+export default function SeletorMeses({ onAnteriorClick, onProximoClick, onChangeSelect, currentMonth }) {
   const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-  const [mesAtual, setMesAtual] = useState("");
+  const [mesAtual, setMesAtual] = useState(null);
   const selectInput = useRef();
 
   useEffect(() => {
     if (!mesAtual) {
-      setMesAtual(moment());
+      currentMonth ? setMesAtual(moment(currentMonth)) : setMesAtual(moment());
+      console.log("effect if");
     }
-  }, [mesAtual]);
+    console.log("effect");
+  }, [mesAtual,currentMonth]);
 
 
   const optionsCalendario = (anoInicio = 2019, anoFim = 2021) => {

@@ -8,6 +8,7 @@
     "@testing-library/react": "9.3.2",
     "@testing-library/user-event": "7.1.2",
     "axios": "0.19.2",
+    "dotenv": "8.2.0",
     "materialize-css": "1.0.0",
     "moment": "2.27.0",
     "react": "16.13.1",
@@ -18,7 +19,7 @@
     "styled-components": "5.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start LH=http://localhost:3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

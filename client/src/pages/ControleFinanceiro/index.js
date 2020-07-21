@@ -21,12 +21,12 @@ import Button from '../../components/Button';
 import { useTransaction } from '../../hooks/TransactionProvider';
 import moment from 'moment';
 
-export default function ControleFinaceiro() {
+export default function ControleFinaceiro(props) {
   const history = useHistory();
   const { setTransaction } = useTransaction();
   const [transactions, setTransactions] = useState(null);
   const [filteredTransactions, setFilteredTransactions] = useState(null);
-  const [currentMes, setCurrentMes] = useState(moment().format('YYYY-MM'));
+  const [currentMes, setCurrentMes] = useState((props.match.params.period ? moment(props.match.params.period) : moment()).format('YYYY-MM'));
   const [filter, setFilter] = useState("");
 
   const loadData = useCallback(
@@ -97,6 +97,7 @@ export default function ControleFinaceiro() {
           onAnteriorClick={handleAnteriorClick}
           onProximoClick={handleProximoClick}
           onChangeSelect={handleChangeSelect}
+          currentMonth={currentMes}
         />
         <Totalizador transactions={filteredTransactions} />
         <Acoes>

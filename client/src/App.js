@@ -5,7 +5,6 @@ import GlobalStyle from './styles/global';
 
 import { TransactionProvider } from './hooks/TransactionProvider';
 
-
 export default function App() {
   return (
     <BrowserRouter>
