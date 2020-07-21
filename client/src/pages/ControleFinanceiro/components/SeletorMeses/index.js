@@ -11,9 +11,7 @@ export default function SeletorMeses({ onAnteriorClick, onProximoClick, onChange
   useEffect(() => {
     if (!mesAtual) {
       currentMonth ? setMesAtual(moment(currentMonth)) : setMesAtual(moment());
-      console.log("effect if");
     }
-    console.log("effect");
   }, [mesAtual,currentMonth]);
 
 
