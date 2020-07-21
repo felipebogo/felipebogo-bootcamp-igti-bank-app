@@ -38,7 +38,7 @@ export default function CadastroControleFinanceiro(props) {
         setIsLoading(false);
         return;
       }
-      const { data: transaction } = await api.get(`/api/transaction/byId/${props.match.params.id}`);;
+      const { data: transaction } = await api.get(`/api/transaction/byId/${props.match.params.id}`);
       if (transaction) {
         const { _id, type, description, category, value, yearMonthDay } = transaction;
         setId(_id);
