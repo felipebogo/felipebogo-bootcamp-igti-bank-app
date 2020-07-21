@@ -38,7 +38,7 @@ export default function CadastroControleFinanceiro(props) {
         setIsLoading(false);
         return;
       }
-      const { data: transaction } = await api.get(`/byId/${props.match.params.id}`);;
+      const { data: transaction } = await api.get(`/api/transaction/byId/${props.match.params.id}`);;
       if (transaction) {
         const { _id, type, description, category, value, yearMonthDay } = transaction;
         setId(_id);
@@ -124,9 +124,9 @@ export default function CadastroControleFinanceiro(props) {
         setIsSaving(true);
         const newTransaction = getTransaction();
         if (!id) {
-          await api.post('/', newTransaction);
+          await api.post('/api/transaction/', newTransaction);
         } else {
-          await api.put('/', newTransaction);
+          await api.put('/api/transaction/', newTransaction);
         }
         history.push('/');
       } catch (error) {

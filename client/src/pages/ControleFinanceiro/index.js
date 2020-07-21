@@ -32,7 +32,7 @@ export default function ControleFinaceiro() {
   const loadData = useCallback(
     async () => {
       setFilteredTransactions(null);
-      const { data } = await api.get(`/${currentMes}`);
+      const { data } = await api.get(`/api/transaction/${currentMes}`);
       setTransactions(data.transactions);
       setFilteredTransactions(data.transactions);
     },

@@ -14,7 +14,7 @@ export default function LinhaLancamento({ data, onDelete }) {
     history.push(`/cadastro/${yearMonth}/${data._id}`);
   }
   const handleDeleteClick = async () =>{
-    await api.delete(`/${data._id}`);
+    await api.delete(`/api/transaction/${data._id}`);
     onDelete();
   }
   
