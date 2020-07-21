@@ -1,9 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `http://localhost:${process.env.PORT}`,
+  //baseURL: "http://localhost:3001",
+  baseURL: "https://felipebogo-bootcamp-igti-bank.herokuapp.com",
 });
-
-console.log('url: ',`http://localhost:${process.env.PORT}`);
 
 export default api;
