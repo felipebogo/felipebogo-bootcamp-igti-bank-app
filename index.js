@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const routes = require('./routes/routes');
 const path = require('path');
 const dotenv = require('dotenv');
+const fs = require('fs');
+
 
 /**
  * Faz a leitura do arquivo
@@ -57,16 +59,30 @@ mongoose.connect(
 );
 
 const { connection } = mongoose;
+const APP_PORT = process.env.PORT || 3001;
+
+const loadProxyReact = () => {
+  // read/process package.json
+  const file = './client/package.json';
+  let pkg = JSON.parse(fs.readFileSync(file).toString());
+
+  // at this point you should have access to your ENV vars
+  pkg.proxy = `http://localhost:${APP_PORT}`;
+
+  // the 2 enables pretty-printing and defines the number of spaces to use
+  fs.writeFileSync(pkg, JSON.stringify(file, null, 2));
+};
 
 connection.once('open', () => {
   connectedToMongoDB = true;
   console.log('Conectado ao MongoDB');
 
+
+
   /**
    * Definição de porta e
    * inicialização do app
    */
-  const APP_PORT = process.env.PORT || 3001;
   app.listen(APP_PORT, () => {
     console.log(`Servidor iniciado na porta ${APP_PORT}`);
   });
