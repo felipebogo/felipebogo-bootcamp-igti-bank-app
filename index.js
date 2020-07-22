@@ -61,19 +61,15 @@ mongoose.connect(
 const { connection } = mongoose;
 const APP_PORT = process.env.PORT || 3001;
 
-const loadProxyReact = () => {
+const loadPortaReact = () => {
   // read/process package.json
-  const file = './client/package.json';
-  let pkg = JSON.parse(fs.readFileSync(file).toString());
-
-  // at this point you should have access to your ENV vars
-  pkg.proxy = `http://localhost:${APP_PORT}`;
-
-  // the 2 enables pretty-printing and defines the number of spaces to use
-  fs.writeFileSync(pkg, JSON.stringify(file, null, 2));
+  const file = './client/.env';
+  env = `REACT_APP_PORT:${APP_PORT}`;
+  fs.writeFileSync(file,env);
 };
 
 connection.once('open', () => {
+  loadPortaReact();
   connectedToMongoDB = true;
   console.log('Conectado ao MongoDB');
 
