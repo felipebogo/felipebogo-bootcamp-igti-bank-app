@@ -61,15 +61,7 @@ mongoose.connect(
 const { connection } = mongoose;
 const APP_PORT = process.env.PORT || 3001;
 
-const loadPortaReact = () => {
-  // read/process package.json
-  const file = './client/.env';
-  env = `REACT_APP_PORT:${APP_PORT}`;
-  fs.writeFileSync(file,env);
-};
-
 connection.once('open', () => {
-  loadPortaReact();
   connectedToMongoDB = true;
   console.log('Conectado ao MongoDB');
 

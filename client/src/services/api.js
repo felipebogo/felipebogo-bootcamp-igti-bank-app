@@ -1,8 +1,7 @@
 import axios from 'axios';
-
+console.log(process.env);
 const api = axios.create({
-  baseURL: `http://localhost:${process.env.REACT_APP_PORT}`,
-  //baseURL: "https://felipebogo-bootcamp-igti-bank.herokuapp.com",
+  baseURL: process.env.REACT_APP_BASE_URL || "https://felipebogo-bootcamp-igti-bank.herokuapp.com",
 });
 
 export default api;

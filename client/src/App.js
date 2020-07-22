@@ -6,7 +6,6 @@ import GlobalStyle from './styles/global';
 import { TransactionProvider } from './hooks/TransactionProvider';
 
 export default function App() {
-  console.log('prcoesso',process.env);
   return (
     <BrowserRouter>
       <TransactionProvider>
